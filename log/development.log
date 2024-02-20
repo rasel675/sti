@@ -1,0 +1,36 @@
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20230824190617)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "age" varchar, "type" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230824190617"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-08-24 19:09:12.042462"], ["updated_at", "2023-08-24 19:09:12.042462"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAdmin Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Rasel"], ["age", nil], ["type", "Admin"], ["created_at", "2023-08-24 19:13:53.453186"], ["updated_at", "2023-08-24 19:13:53.453186"]]
+  [1m[36mTRANSACTION (7.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAdmin Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "manon"], ["age", nil], ["type", "Admin"], ["created_at", "2023-08-24 19:14:10.914396"], ["updated_at", "2023-08-24 19:14:10.914396"]]
+  [1m[36mTRANSACTION (7.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mClient Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Rasel"], ["age", nil], ["type", "Client"], ["created_at", "2023-08-24 19:15:19.707851"], ["updated_at", "2023-08-24 19:15:19.707851"]]
+  [1m[36mTRANSACTION (7.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mClient Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "a"], ["age", nil], ["type", "Client"], ["created_at", "2023-08-24 19:15:27.141853"], ["updated_at", "2023-08-24 19:15:27.141853"]]
+  [1m[36mTRANSACTION (7.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mClient Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "ab"], ["age", nil], ["type", "Client"], ["created_at", "2023-08-24 19:15:31.477454"], ["updated_at", "2023-08-24 19:15:31.477454"]]
+  [1m[36mTRANSACTION (8.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mAdmin Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ?[0m  [["type", "Admin"]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mClient Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ?[0m  [["type", "Client"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "ab"], ["age", nil], ["type", nil], ["created_at", "2023-08-24 19:16:37.807910"], ["updated_at", "2023-08-24 19:16:37.807910"]]
+  [1m[36mTRANSACTION (7.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
